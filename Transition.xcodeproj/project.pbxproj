@@ -12,6 +12,7 @@
 		AFC04C7619BB643300AA30D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFC04C7419BB643300AA30D6 /* Main.storyboard */; };
 		AFC04C7819BB643300AA30D6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFC04C7719BB643300AA30D6 /* Images.xcassets */; };
 		AFC04C8419BB643300AA30D6 /* TransitionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC04C8319BB643300AA30D6 /* TransitionTests.swift */; };
+		AFC04C8E19BB656000AA30D6 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC04C8D19BB656000AA30D6 /* TransitionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 		AFC04C7D19BB643300AA30D6 /* TransitionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransitionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFC04C8219BB643300AA30D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFC04C8319BB643300AA30D6 /* TransitionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionTests.swift; sourceTree = "<group>"; };
+		AFC04C8D19BB656000AA30D6 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				AFC04C7019BB643300AA30D6 /* AppDelegate.swift */,
 				AFC04C7219BB643300AA30D6 /* ViewController.swift */,
 				AFC04C7419BB643300AA30D6 /* Main.storyboard */,
+				AFC04C8D19BB656000AA30D6 /* TransitionManager.swift */,
 				AFC04C7719BB643300AA30D6 /* Images.xcassets */,
 				AFC04C6E19BB643300AA30D6 /* Supporting Files */,
 			);
@@ -208,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFC04C8E19BB656000AA30D6 /* TransitionManager.swift in Sources */,
 				AFC04C7319BB643300AA30D6 /* ViewController.swift in Sources */,
 				AFC04C7119BB643300AA30D6 /* AppDelegate.swift in Sources */,
 			);
