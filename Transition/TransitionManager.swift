@@ -27,13 +27,7 @@ class TransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIView
         let offScreenLeft = CGAffineTransformMakeTranslation(-container.frame.width, 0)
         
         // prepare the toView for the animation
-        if (self.presenting){
-            toView.transform = offScreenRight
-        }
-        else {
-            toView.transform = offScreenLeft
-        }
-        
+        toView.transform = self.presenting ? offScreenRight : offScreenLeft
         
         // add the both views to our view controller
         container.addSubview(toView)
@@ -52,13 +46,7 @@ class TransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIView
             
             // slide fromView off either the left or right edge of the screen 
             // depending if we're presenting or dismissing this view
-            if (self.presenting){
-                fromView.transform = offScreenLeft
-            }
-            else {
-                fromView.transform = offScreenRight
-            }
-            
+            fromView.transform = self.presenting ? offScreenLeft : offScreenRight
             toView.transform = CGAffineTransformIdentity
             
             }, completion: { finished in
