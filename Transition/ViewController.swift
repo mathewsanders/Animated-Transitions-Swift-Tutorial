@@ -36,6 +36,11 @@ class ViewController: UIViewController {
     @IBAction func unwindToViewController(segue: UIStoryboardSegue) {
         // empty for now
     }
+    
+    // we override this method to manage what style status bar is shown
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return self.presentingViewController == nil ? UIStatusBarStyle.Default : UIStatusBarStyle.LightContent
+    }
 
 }
 
