@@ -23,11 +23,21 @@ class TransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIView
         let toView = transitionContext.viewForKey(UITransitionContextToViewKey)!
         
         // set up from 2D transforms that we'll use in the animation
-        let offScreenRight = CGAffineTransformMakeTranslation(container.frame.width, 0)
-        let offScreenLeft = CGAffineTransformMakeTranslation(-container.frame.width, 0)
+        let π : CGFloat = 3.14159265359
+        
+        let offScreenRight = CGAffineTransformMakeRotation(-π/2)
+        let offScreenLeft = CGAffineTransformMakeRotation(π/2)
         
         // prepare the toView for the animation
         toView.transform = self.presenting ? offScreenRight : offScreenLeft
+        
+        // set the anchor point so that rotations happen from the top-left corner
+        toView.layer.anchorPoint = CGPoint(x:0, y:0)
+        fromView.layer.anchorPoint = CGPoint(x:0, y:0)
+        
+        // updating the anchor point also moves the position to we have to move the center position to the top-left to compensate
+        toView.layer.position = CGPoint(x:0, y:0)
+        fromView.layer.position = CGPoint(x:0, y:0)
         
         // add the both views to our view controller
         container.addSubview(toView)
@@ -60,7 +70,7 @@ class TransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIView
     
     // return how many seconds the transiton animation will take
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
-        return 0.5
+        return 0.75
     }
     
     // MARK: UIViewControllerTransitioningDelegate protocol methods
