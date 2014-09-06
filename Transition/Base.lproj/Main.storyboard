@@ -58,6 +58,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="KMQ-Eq-TBY" kind="unwind" unwindAction="unwindToViewController:" id="lNV-cO-eSB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -69,6 +72,7 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E0S-9V-Y3S" sceneMemberID="firstResponder"/>
+                <exit id="KMQ-Eq-TBY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="841" y="402"/>
         </scene>
