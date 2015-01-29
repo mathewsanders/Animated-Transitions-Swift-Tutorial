@@ -19,8 +19,12 @@ class TransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIView
         
         // get reference to our fromView, toView and the container view that we should perform the transition in
         let container = transitionContext.containerView()
-        let fromView = transitionContext.viewForKey(UITransitionContextFromViewKey)!
-        let toView = transitionContext.viewForKey(UITransitionContextToViewKey)!
+        
+        let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+        let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+        
+        let fromView = fromViewController.view
+        let toView = toViewController.view
         
         // set up from 2D transforms that we'll use in the animation
         let π : CGFloat = 3.14159265359
