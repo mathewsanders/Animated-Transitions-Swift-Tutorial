@@ -20,8 +20,13 @@
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext
 {
     UIView* container = transitionContext.containerView;
-    UIView* fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
-    UIView* toView = [transitionContext viewForKey:UITransitionContextToViewKey];
+    
+    
+    UIView* fromView = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey].view;
+    UIView* toView = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey].view;
+
+//    UIView* fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
+//    UIView* toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     
     
     CGAffineTransform offScreenRight = CGAffineTransformMakeRotation(-M_PI/2);

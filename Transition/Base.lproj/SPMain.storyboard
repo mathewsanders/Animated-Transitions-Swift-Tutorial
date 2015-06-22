@@ -24,7 +24,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vFF-vX-7xo" kind="custom" id="uvS-nv-A0h"/>
+                                    <segue destination="vFF-vX-7xo" kind="show" id="uvS-nv-A0h"/>
                                 </connections>
                             </button>
                         </subviews>
