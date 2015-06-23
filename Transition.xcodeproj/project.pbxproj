@@ -8,10 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AFC04C7119BB643300AA30D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC04C7019BB643300AA30D6 /* AppDelegate.swift */; };
-		AFC04C7319BB643300AA30D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC04C7219BB643300AA30D6 /* ViewController.swift */; };
-		AFC04C7619BB643300AA30D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFC04C7419BB643300AA30D6 /* Main.storyboard */; };
 		AFC04C7819BB643300AA30D6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFC04C7719BB643300AA30D6 /* Images.xcassets */; };
-		AFC04C8E19BB656000AA30D6 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC04C8D19BB656000AA30D6 /* TransitionManager.swift */; };
 		C3AD81FC1B340A760024F7C5 /* SPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AD81FB1B340A760024F7C5 /* SPViewController.m */; };
 		C3AD82001B340D2F0024F7C5 /* SPTransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AD81FF1B340D2F0024F7C5 /* SPTransitionManager.m */; };
 		C3AD82031B3414920024F7C5 /* SPMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3AD82011B3414920024F7C5 /* SPMain.storyboard */; };
@@ -21,11 +18,7 @@
 		AFC04C6B19BB643300AA30D6 /* Transition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFC04C6F19BB643300AA30D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFC04C7019BB643300AA30D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AFC04C7219BB643300AA30D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AFC04C7519BB643300AA30D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AFC04C7719BB643300AA30D6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		AFC04C8D19BB656000AA30D6 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
-		C3AD81F91B340A750024F7C5 /* Transition-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Transition-Bridging-Header.h"; sourceTree = "<group>"; };
 		C3AD81FA1B340A760024F7C5 /* SPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPViewController.h; path = Obj/SPViewController.h; sourceTree = "<group>"; };
 		C3AD81FB1B340A760024F7C5 /* SPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPViewController.m; path = Obj/SPViewController.m; sourceTree = "<group>"; };
 		C3AD81FE1B340D2F0024F7C5 /* SPTransitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPTransitionManager.h; path = Obj/SPTransitionManager.h; sourceTree = "<group>"; };
@@ -64,13 +57,9 @@
 			isa = PBXGroup;
 			children = (
 				AFC04C7019BB643300AA30D6 /* AppDelegate.swift */,
-				AFC04C7219BB643300AA30D6 /* ViewController.swift */,
-				AFC04C7419BB643300AA30D6 /* Main.storyboard */,
-				AFC04C8D19BB656000AA30D6 /* TransitionManager.swift */,
 				AFC04C7719BB643300AA30D6 /* Images.xcassets */,
 				AFC04C6E19BB643300AA30D6 /* Supporting Files */,
 				C3AD81FD1B340A7D0024F7C5 /* Obj */,
-				C3AD81F91B340A750024F7C5 /* Transition-Bridging-Header.h */,
 			);
 			path = Transition;
 			sourceTree = "<group>";
@@ -152,7 +141,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFC04C7619BB643300AA30D6 /* Main.storyboard in Resources */,
 				C3AD82031B3414920024F7C5 /* SPMain.storyboard in Resources */,
 				AFC04C7819BB643300AA30D6 /* Images.xcassets in Resources */,
 			);
@@ -165,8 +153,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFC04C8E19BB656000AA30D6 /* TransitionManager.swift in Sources */,
-				AFC04C7319BB643300AA30D6 /* ViewController.swift in Sources */,
 				C3AD82001B340D2F0024F7C5 /* SPTransitionManager.m in Sources */,
 				AFC04C7119BB643300AA30D6 /* AppDelegate.swift in Sources */,
 				C3AD81FC1B340A760024F7C5 /* SPViewController.m in Sources */,
@@ -176,14 +162,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AFC04C7419BB643300AA30D6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AFC04C7519BB643300AA30D6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C3AD82011B3414920024F7C5 /* SPMain.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

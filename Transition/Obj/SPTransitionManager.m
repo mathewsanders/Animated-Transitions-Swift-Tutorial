@@ -7,11 +7,15 @@
 //
 
 #import "SPTransitionManager.h"
+#import "BaseAnimation.h"
 #import "RotateAnimation.h"
+#import "ShuffleAnimation.h"
+#import "SlideAnimation.h"
+#import "ScaleAnimation.h"
 
 @interface SPTransitionManager ()
 
-@property(nonatomic,strong) RotateAnimation* rotateAnimation;
+@property(nonatomic,strong) BaseAnimation* animation;
 
 @end
 
@@ -31,7 +35,7 @@
 {
     self = [super init];
     if (self) {
-        self.rotateAnimation = [[RotateAnimation alloc] init];
+        self.animation = [[RotateAnimation alloc] init];
     }
     return self;
 }
@@ -41,14 +45,14 @@
 - (id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
 {
     // these methods are the perfect place to set our `presenting` flag to either true or false - voila!
-    self.rotateAnimation.type = AnimationTypePresent;
-    return self.rotateAnimation;
+    self.animation.type = AnimationTypePresent;
+    return self.animation;
 }
 
 - (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
 {
-    self.rotateAnimation.type = AnimationTypeDismiss;
-    return self.rotateAnimation;
+    self.animation.type = AnimationTypeDismiss;
+    return self.animation;
 }
 
 
@@ -61,14 +65,14 @@
     
     switch (operation) {
     case UINavigationControllerOperationPush:
-        self.rotateAnimation.type = AnimationTypePresent;
+        self.animation.type = AnimationTypePresent;
             break;
     case UINavigationControllerOperationPop:
-        self.rotateAnimation.type = AnimationTypeDismiss;
+        self.animation.type = AnimationTypeDismiss;
             break;
         default: return nil;
     }
-    return self.rotateAnimation;
+    return self.animation;
     
 }
 
