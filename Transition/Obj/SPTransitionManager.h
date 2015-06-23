@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface SPTransitionManager : NSObject<UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate>
-
+@interface SPTransitionManager : NSObject<UIViewControllerTransitioningDelegate, UINavigationControllerDelegate>
++ (instancetype)sharedInstance;
 @end

@@ -10,23 +10,15 @@
 #import "SPTransitionManager.h"
 
 @interface SPViewController ()
-@property (nonatomic, strong) SPTransitionManager* transitionManager;
 @end
 
 @implementation SPViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.transitionManager = [SPTransitionManager new];
-    // Do any additional setup after loading the view.
-}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.navigationController.delegate = [SPTransitionManager sharedInstance];
 }
-
 
 #pragma mark - Navigation
 
@@ -42,8 +34,8 @@
     
     // instead of using the default transition animation, we'll ask
     // the segue to use our custom TransitionManager object to manage the transition animation
-    toViewController.transitioningDelegate = self.transitionManager;
-
+    if (self.navigationController == nil)
+        toViewController.transitioningDelegate = [SPTransitionManager sharedInstance];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle

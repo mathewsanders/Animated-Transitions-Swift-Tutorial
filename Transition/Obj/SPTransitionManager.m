@@ -7,90 +7,73 @@
 //
 
 #import "SPTransitionManager.h"
+#import "RotateAnimation.h"
 
 @interface SPTransitionManager ()
 
-@property (nonatomic) bool presenting;
+@property(nonatomic,strong) RotateAnimation* rotateAnimation;
 
 @end
 
 @implementation SPTransitionManager
 
-
-- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext
++ (instancetype)sharedInstance
 {
-    UIView* container = transitionContext.containerView;
-    
-    
-    UIView* fromView = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey].view;
-    UIView* toView = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey].view;
-
-//    UIView* fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
-//    UIView* toView = [transitionContext viewForKey:UITransitionContextToViewKey];
-    
-    
-    CGAffineTransform offScreenRight = CGAffineTransformMakeRotation(-M_PI/2);
-    CGAffineTransform offScreenLeft = CGAffineTransformMakeRotation(M_PI/2);
-    
-    // prepare the toView for the animation
-    toView.transform = self.presenting ? offScreenRight : offScreenLeft;
-    
-    // set the anchor point so that rotations happen from the top-left corner
-    toView.layer.anchorPoint = CGPointMake(0, 0);
-    fromView.layer.anchorPoint = CGPointMake(0, 0);
-    
-    // updating the anchor point also moves the position to we have to move the center position to the top-left to compensate
-    toView.layer.position = CGPointMake(0, 0);
-    fromView.layer.position = CGPointMake(0, 0);
-
-    // add the both views to our view controller
-    [container addSubview:toView];
-    [container addSubview:fromView];
-
-    // get the duration of the animation
-    // DON'T just type '0.5s' -- the reason why won't make sense until the next post
-    // but for now it's important to just follow this approach
-    NSTimeInterval duration = [self transitionDuration:transitionContext];
-    
-    // perform the animation!
-    // for this example, just slid both fromView and toView to the left at the same time
-    // meaning fromView is pushed off the screen and toView slides into view
-    // we also use the block animation usingSpringWithDamping for a little bounce
-
-    [UIView animateWithDuration:duration
-                          delay:0
-         usingSpringWithDamping:0.5f
-          initialSpringVelocity:0.8f
-                        options:0
-                     animations:^{
-                         // slide fromView off either the left or right edge of the screen
-                         // depending if we're presenting or dismissing this view
-                         fromView.transform = self.presenting ? offScreenLeft : offScreenRight;
-                         toView.transform = CGAffineTransformIdentity;
-                     }
-                     completion:^(BOOL finished) {
-                         // tell our transitionContext object that we've finished animating
-                         [transitionContext completeTransition:true];
-                     }];
-    
+    static dispatch_once_t once;
+    static id sharedInstance;
+    dispatch_once(&once, ^{
+        sharedInstance = [[self alloc] init];
+    });
+    return sharedInstance;
 }
 
-- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext
+- (instancetype)init
 {
-    return 0.75;
+    self = [super init];
+    if (self) {
+        self.rotateAnimation = [[RotateAnimation alloc] init];
+    }
+    return self;
 }
+
+#pragma mark - UIViewControllerTransitioningDelegate
 
 - (id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
 {
     // these methods are the perfect place to set our `presenting` flag to either true or false - voila!
-    self.presenting = true;
-    return self;
+    self.rotateAnimation.type = AnimationTypePresent;
+    return self.rotateAnimation;
 }
 
 - (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
 {
-    self.presenting = false;
-    return self;
+    self.rotateAnimation.type = AnimationTypeDismiss;
+    return self.rotateAnimation;
+}
+
+
+#pragma mark - Navigation Controller Delegate
+
+-(id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                 animationControllerForOperation:(UINavigationControllerOperation)operation
+                                              fromViewController:(UIViewController *)fromVC
+                                                toViewController:(UIViewController *)toVC {
+    
+    switch (operation) {
+    case UINavigationControllerOperationPush:
+        self.rotateAnimation.type = AnimationTypePresent;
+            break;
+    case UINavigationControllerOperationPop:
+        self.rotateAnimation.type = AnimationTypeDismiss;
+            break;
+        default: return nil;
+    }
+    return self.rotateAnimation;
+    
+}
+
+-(id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController {
+    return nil;
 }
 
 
