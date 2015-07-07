@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.9" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="C5d-Cl-cRy">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
-        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Transition" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="SPViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -24,7 +24,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vFF-vX-7xo" kind="custom" id="S99-o2-mRF"/>
+                                    <segue destination="vFF-vX-7xo" kind="show" id="uvS-nv-A0h"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -35,15 +35,16 @@
                             <constraint firstItem="bG7-NU-zkc" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="20" id="rd4-Cz-snJ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Tn7-20-c42"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="402"/>
+            <point key="canvasLocation" x="952" y="402"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Vkr-Ev-tXc">
             <objects>
-                <viewController id="vFF-vX-7xo" customClass="ViewController" customModule="Transition" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vFF-vX-7xo" customClass="SPViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Srp-yV-6Jt"/>
                         <viewControllerLayoutGuide type="bottom" id="RMA-aV-yAq"/>
@@ -59,7 +60,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="KMQ-Eq-TBY" kind="unwind" unwindAction="unwindToViewController:" id="lNV-cO-eSB"/>
+                                    <segue destination="KMQ-Eq-TBY" kind="unwind" unwindAction="unwindToViewController:" id="dey-Bi-P92"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -74,7 +75,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E0S-9V-Y3S" sceneMemberID="firstResponder"/>
                 <exit id="KMQ-Eq-TBY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="841" y="402"/>
+            <point key="canvasLocation" x="1653" y="402"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BjS-gj-LkS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C5d-Cl-cRy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wGu-Xb-Gzu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="Zca-ZP-LJm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XDd-Bq-b7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="402"/>
         </scene>
     </scenes>
 </document>
